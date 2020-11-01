@@ -1,5 +1,5 @@
 {
-  "name": "@okta/okta-auth-js",
+  "name": "@weivall/okta-auth-js",
   "description": "The Okta Auth SDK",
   "version": "3.2.4",
   "homepage": "https://github.com/okta/okta-auth-js",
@@ -9,10 +9,10 @@
   "react-native": "lib/server/serverIndex.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/okta/okta-auth-js.git"
+    "url": "https://github.com/weivall/okta-auth-js.git"
   },
   "bugs": {
-    "url": "https://github.com/okta/okta-auth-js/issues"
+    "url": "https://github.com/weivall/okta-auth-js/issues"
   },
   "scripts": {
     "lint": "eslint .",

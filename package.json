@@ -11,10 +11,11 @@
     "lerna": "^2.11.0"
   },
   "engines": {
+    "node": "12.4.0",
     "yarn": "^1.7.0"
   },
   "scripts": {
-    "build": "yarn workspace @okta/okta-auth-js build",
+    "build": "yarn workspace @weivall/okta-auth-js build",
     "clean": "yarn clean-dist && yarn clean-node-modules",
     "clean-dist": "rimraf dist && lerna exec rimraf build2 && lerna exec rimraf dist",
     "clean-node-modules": "lerna exec rimraf node_modules && rimraf node_modules",
@@ -23,10 +24,10 @@
     "test": "yarn test:unit && yarn test:e2e && yarn test:e2e:saucelabs",
     "test:e2e": "lsof -nti:8080 | xargs kill -9 && yarn --cwd test/e2e start",
     "test:e2e:saucelabs": "export RUN_SAUCE_TESTS=true && yarn test:e2e",
-    "test:browser": "yarn workspace @okta/okta-auth-js test:browser",
-    "test:server": "yarn workspace @okta/okta-auth-js test:server",
-    "test:karma": "yarn workspace @okta/okta-auth-js test:karma",
-    "test:unit": "yarn workspace @okta/okta-auth-js test",
+    "test:browser": "yarn workspace @weivall/okta-auth-js test:browser",
+    "test:server": "yarn workspace @weivall/okta-auth-js test:server",
+    "test:karma": "yarn workspace @weivall/okta-auth-js test:karma",
+    "test:unit": "yarn workspace @weivall/okta-auth-js test",
     "test:report": "yarn test:unit --ci --silent || true",
     "prepare": "yarn build",
     "start": "yarn --cwd test/app start --open",
