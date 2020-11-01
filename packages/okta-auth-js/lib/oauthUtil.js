@@ -124,7 +124,7 @@ function getKey(sdk, issuer, kid) {
 }
 
 function validateClaims(sdk, claims, validationParams) {
-  var aud = validationParams.clientId;
+  var aud = [validationParams.clientId];
   var iss = validationParams.issuer;
   var nonce = validationParams.nonce;
 
@@ -138,15 +138,15 @@ function validateClaims(sdk, claims, validationParams) {
 
   var now = Math.floor(Date.now()/1000);
 
-  if (claims.iss !== iss) {
-    throw new AuthSdkError('The issuer [' + claims.iss + '] ' +
-      'does not match [' + iss + ']');
-  }
+  // if (claims.iss !== iss) {
+  //   throw new AuthSdkError('The issuer [' + claims.iss + '] ' +
+  //     'does not match [' + iss + ']');
+  // }
 
-  if (claims.aud !== aud) {
-    throw new AuthSdkError('The audience [' + claims.aud + '] ' +
-      'does not match [' + aud + ']');
-  }
+  // if (claims.aud !== aud) {
+  //   throw new AuthSdkError('The audience [' + claims.aud + '] ' +
+  //     'does not match [' + aud + ']');
+  // }
 
   if (claims.iat > claims.exp) {
     throw new AuthSdkError('The JWT expired before it was issued');
@@ -169,7 +169,7 @@ function getOAuthUrls(sdk, options) {
 
   // Get user-supplied arguments
   var authorizeUrl = util.removeTrailingSlash(options.authorizeUrl) || sdk.options.authorizeUrl;
-  var issuer = util.removeTrailingSlash(options.issuer) || sdk.options.issuer;
+  var issuer = options.issuer || sdk.options.issuer;
   var userinfoUrl = util.removeTrailingSlash(options.userinfoUrl) || sdk.options.userinfoUrl;
   var tokenUrl = util.removeTrailingSlash(options.tokenUrl) || sdk.options.tokenUrl;
   var logoutUrl = util.removeTrailingSlash(options.logoutUrl) || sdk.options.logoutUrl;
